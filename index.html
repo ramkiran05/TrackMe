@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple personal productivity and habit tracker." />
+  <title>TrackMe — Personal Progress Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div><strong>TrackMe</strong><span>Personal dashboard</span></div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+        <button class="nav-item" data-page="analytics">▥ <span>Analytics</span></button>
+        <button class="nav-item" data-page="goals">◎ <span>Goals</span></button>
+        <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="mini-streak"><span>🔥</span><div><b id="sideStreak">0 days</b><small>Current streak</small></div></div>
+        <p>Your data stays in this browser.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuBtn">☰</button>
+        <div><p class="eyebrow" id="greeting">GOOD EVENING</p><h1 id="pageTitle">Your day, at a glance.</h1></div>
+        <div class="top-actions">
+          <label class="date-picker-wrap"><span>📅</span><input type="date" id="datePicker" /></label>
+          <button class="icon-button" id="themeToggle" title="Toggle theme">◐</button>
+        </div>
+      </header>
+
+      <section class="page active" id="dashboardPage">
+        <div class="hero-grid">
+          <article class="card progress-card">
+            <div class="card-head"><div><p class="eyebrow">TODAY'S PROGRESS</p><h2 id="progressText">0%</h2></div><div class="score-ring" id="scoreRing"><span id="scoreRingText">0</span></div></div>
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+            <p class="muted" id="progressMessage">Complete your priorities and habits to build momentum.</p>
+          </article>
+          <article class="card streak-card">
+            <div class="metric-icon">🔥</div><div><p class="eyebrow">CURRENT STREAK</p><h2><span id="streakCount">0</span> days</h2><p class="muted">Keep showing up. Consistency beats intensity.</p></div>
+          </article>
+          <article class="card focus-card">
+            <div class="metric-icon">⏱</div><div><p class="eyebrow">FOCUS TIME</p><h2 id="focusTime">0m</h2><p class="muted">DSA + project + exercise logged today.</p></div>
+          </article>
+        </div>
+
+        <div class="content-grid">
+          <article class="card priorities-card">
+            <div class="section-title"><div><p class="eyebrow">FOCUS</p><h3>Top 3 priorities</h3></div><span class="counter" id="priorityCounter">0/3</span></div>
+            <div id="prioritiesList" class="stack"></div>
+          </article>
+
+          <article class="card habits-card">
+            <div class="section-title"><div><p class="eyebrow">CONSISTENCY</p><h3>Habits</h3></div><button class="text-button" id="quickAddHabit">+ Add</button></div>
+            <div id="habitsList" class="habit-list"></div>
+          </article>
+
+          <article class="card time-card">
+            <div class="section-title"><div><p class="eyebrow">TIME</p><h3>Where your time went</h3></div><span class="counter" id="productiveHours">0h</span></div>
+            <div class="time-grid">
+              <label>DSA <input class="time-input" type="number" min="0" id="timeDsa" /> <span>min</span></label>
+              <label>Project <input class="time-input" type="number" min="0" id="timeProject" /> <span>min</span></label>
+              <label>Exercise <input class="time-input" type="number" min="0" id="timeExercise" /> <span>min</span></label>
+              <label>Scrolling <input class="time-input" type="number" min="0" id="timeScroll" /> <span>min</span></label>
+            </div>
+          </article>
+
+          <article class="card reflection-card">
+            <div class="section-title"><div><p class="eyebrow">REFLECTION</p><h3>End-of-day notes</h3></div><span class="save-indicator" id="saveIndicator">Saved</span></div>
+            <label>Best thing I did today<textarea id="reflectionBest" placeholder="What are you proud of today?"></textarea></label>
+            <label>What wasted my time<textarea id="reflectionWaste" placeholder="What pulled your attention away?"></textarea></label>
+            <label>Tomorrow I will improve<textarea id="reflectionImprove" placeholder="One concrete improvement for tomorrow..."></textarea></label>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="analyticsPage">
+        <div class="analytics-top">
+          <article class="card"><p class="eyebrow">LAST 7 DAYS</p><h2 id="weekConsistency">0%</h2><p class="muted">Overall consistency</p></article>
+          <article class="card"><p class="eyebrow">PRIORITIES</p><h2 id="weekPriorities">0</h2><p class="muted">Completed this week</p></article>
+          <article class="card"><p class="eyebrow">PRODUCTIVE TIME</p><h2 id="weekFocus">0h</h2><p class="muted">DSA + project + exercise</p></article>
+        </div>
+        <div class="content-grid analytics-grid">
+          <article class="card wide-card">
+            <div class="section-title"><div><p class="eyebrow">WEEK VIEW</p><h3>Daily completion</h3></div></div>
+            <div class="bar-chart" id="weeklyChart"></div>
+          </article>
+          <article class="card wide-card">
+            <div class="section-title"><div><p class="eyebrow">HABITS</p><h3>7-day consistency</h3></div></div>
+            <div id="habitAnalytics" class="analytics-list"></div>
+          </article>
+          <article class="card wide-card">
+            <div class="section-title"><div><p class="eyebrow">INSIGHT</p><h3>Your pattern</h3></div></div>
+            <p class="insight" id="insightText">Log a few days and TrackMe will start showing patterns here.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="goalsPage">
+        <div class="goals-header card">
+          <div><p class="eyebrow">LONG-TERM DIRECTION</p><h2>Goals</h2><p class="muted">Turn big outcomes into visible progress.</p></div>
+          <button class="primary-button" id="addGoalBtn">+ New goal</button>
+        </div>
+        <div class="goal-grid" id="goalsList"></div>
+      </section>
+
+      <section class="page" id="settingsPage">
+        <div class="settings-grid">
+          <article class="card">
+            <div class="section-title"><div><p class="eyebrow">PERSONALIZE</p><h3>Your habits</h3></div></div>
+            <div id="settingsHabits" class="settings-habits"></div>
+            <div class="inline-form"><input id="newHabitName" placeholder="e.g. Read 20 min" maxlength="30"/><button class="primary-button" id="addHabitBtn">Add habit</button></div>
+          </article>
+          <article class="card">
+            <div class="section-title"><div><p class="eyebrow">DATA</p><h3>Backup & reset</h3></div></div>
+            <p class="muted">Your tracker uses browser local storage. Export a backup if you want to keep a copy.</p>
+            <div class="button-row"><button class="secondary-button" id="exportBtn">Export data</button><label class="secondary-button file-button">Import data<input type="file" id="importFile" accept="application/json" /></label><button class="danger-button" id="resetBtn">Reset everything</button></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="goalDialog">
+    <form method="dialog" id="goalForm" class="dialog-card">
+      <div class="section-title"><div><p class="eyebrow">CREATE</p><h3>New goal</h3></div><button class="icon-button" value="cancel">×</button></div>
+      <label>Goal name<input id="goalName" required placeholder="Solve 200 DSA problems" /></label>
+      <div class="form-two"><label>Current<input id="goalCurrent" type="number" min="0" value="0" /></label><label>Target<input id="goalTarget" type="number" min="1" value="100" required /></label></div>
+      <label>Unit<input id="goalUnit" placeholder="problems, hours, days..." /></label>
+      <button class="primary-button full" id="saveGoalBtn" value="default">Create goal</button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
