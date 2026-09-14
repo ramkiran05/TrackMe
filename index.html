@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A simple personal productivity and habit tracker." />
-  <title>TrackMe — Personal Progress Dashboard</title>
+  <title>TrackMe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,13 +18,24 @@
         <div><strong>TrackMe</strong><span>Personal dashboard</span></div>
       </div>
       <nav class="nav">
-        <button class="nav-item active" data-page="dashboard">⌂ <span>Dashboard</span></button>
-        <button class="nav-item" data-page="analytics">▥ <span>Analytics</span></button>
-        <button class="nav-item" data-page="goals">◎ <span>Goals</span></button>
-        <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+        <button class="nav-item active" data-page="dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Dashboard</span></button>
+        <button class="nav-item" data-page="analytics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-no-axes-column"><path d="M5 21v-6"/><path d="M12 21V3"/><path d="M19 21V9"/></svg>
+           <span>Analytics</span></button>
+        <button class="nav-item" data-page="goals">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-goal"><path d="M12 13V2l8 4-8 4"/><path d="M20.561 10.222a9 9 0 1 1-12.55-5.29"/><path d="M8.002 9.997a5 5 0 1 0 8.9 2.02"/></svg>
+          <span>Goals</span></button>
+        <button class="nav-item" data-page="settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog"><path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/></svg>
+          <span>Settings</span></button>
       </nav>
       <div class="sidebar-footer">
-        <div class="mini-streak"><span>🔥</span><div><b id="sideStreak">0 days</b><small>Current streak</small></div></div>
+        <div class="mini-streak">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-flame"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235" /></svg>
+        </span>
+        <div><b id="sideStreak">0 days</b><small>Current streak</small></div></div>
         <p>Your data stays in this browser.</p>
       </div>
     </aside>
@@ -34,7 +45,12 @@
         <button class="icon-button mobile-only" id="menuBtn">☰</button>
         <div><p class="eyebrow" id="greeting">GOOD EVENING</p><h1 id="pageTitle">Your day, at a glance.</h1></div>
         <div class="top-actions">
-          <label class="date-picker-wrap"><span>📅</span><input type="date" id="datePicker" /></label>
+          <label class="date-picker-wrap"><span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path d="M12 11.993a.75.75 0 0 0-.75.75v.006c0 .414.336.75.75.75h.006a.75.75 0 0 0 .75-.75v-.006a.75.75 0 0 0-.75-.75H12ZM12 16.494a.75.75 0 0 0-.75.75v.005c0 .414.335.75.75.75h.005a.75.75 0 0 0 .75-.75v-.005a.75.75 0 0 0-.75-.75H12ZM8.999 17.244a.75.75 0 0 1 .75-.75h.006a.75.75 0 0 1 .75.75v.006a.75.75 0 0 1-.75.75h-.006a.75.75 0 0 1-.75-.75v-.006ZM7.499 16.494a.75.75 0 0 0-.75.75v.005c0 .414.336.75.75.75h.005a.75.75 0 0 0 .75-.75v-.005a.75.75 0 0 0-.75-.75H7.5ZM13.499 14.997a.75.75 0 0 1 .75-.75h.006a.75.75 0 0 1 .75.75v.005a.75.75 0 0 1-.75.75h-.006a.75.75 0 0 1-.75-.75v-.005ZM14.25 16.494a.75.75 0 0 0-.75.75v.006c0 .414.335.75.75.75h.005a.75.75 0 0 0 .75-.75v-.006a.75.75 0 0 0-.75-.75h-.005ZM15.75 14.995a.75.75 0 0 1 .75-.75h.005a.75.75 0 0 1 .75.75v.006a.75.75 0 0 1-.75.75H16.5a.75.75 0 0 1-.75-.75v-.006ZM13.498 12.743a.75.75 0 0 1 .75-.75h2.25a.75.75 0 1 1 0 1.5h-2.25a.75.75 0 0 1-.75-.75ZM6.748 14.993a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z" />
+                <path fill-rule="evenodd" d="M18 2.993a.75.75 0 0 0-1.5 0v1.5h-9V2.994a.75.75 0 1 0-1.5 0v1.497h-.752a3 3 0 0 0-3 3v11.252a3 3 0 0 0 3 3h13.5a3 3 0 0 0 3-3V7.492a3 3 0 0 0-3-3H18V2.993ZM3.748 18.743v-7.5a1.5 1.5 0 0 1 1.5-1.5h13.5a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5h-13.5a1.5 1.5 0 0 1-1.5-1.5Z" clip-rule="evenodd" />
+            </svg>
+          </span><input type="date" id="datePicker" /></label>
           <button class="icon-button" id="themeToggle" title="Toggle theme">◐</button>
         </div>
       </header>
@@ -47,10 +63,19 @@
             <p class="muted" id="progressMessage">Complete your priorities and habits to build momentum.</p>
           </article>
           <article class="card streak-card">
-            <div class="metric-icon">🔥</div><div><p class="eyebrow">CURRENT STREAK</p><h2><span id="streakCount">0</span> days</h2><p class="muted">Keep showing up. Consistency beats intensity.</p></div>
+            <div class="metric-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                  <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.718Z" clip-rule="evenodd" />
+              </svg>
+
+            </div><div><p class="eyebrow">CURRENT STREAK</p><h2><span id="streakCount">0</span> days</h2><p class="muted">Keep showing up. Consistency beats intensity.</p></div>
           </article>
           <article class="card focus-card">
-            <div class="metric-icon">⏱</div><div><p class="eyebrow">FOCUS TIME</p><h2 id="focusTime">0m</h2><p class="muted">DSA + project + exercise logged today.</p></div>
+            <div class="metric-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+              </svg>
+            </div><div><p class="eyebrow">FOCUS TIME</p><h2 id="focusTime">0m</h2><p class="muted">DSA + project + exercise logged today.</p></div>
           </article>
         </div>
 
@@ -61,7 +86,7 @@
           </article>
 
           <article class="card habits-card">
-            <div class="section-title"><div><p class="eyebrow">CONSISTENCY</p><h3>Habits</h3></div><button class="text-button" id="quickAddHabit">+ Add</button></div>
+            <div class="section-title"><div><p class="eyebrow">CONSISTENCY</p><h3>Habits</h3></div><button class="text-button" id="quickAddHabit">ADD</button></div>
             <div id="habitsList" class="habit-list"></div>
           </article>
 

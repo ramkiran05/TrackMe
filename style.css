@@ -3,3 +3,294 @@
 body.dark{--bg:#101716;--surface:#17201e;--surface2:#202b29;--text:#edf4f2;--muted:#9aa9a5;--line:#2a3734;--accent:#82c7b3;--accent2:#1d3a33;--shadow:none}.dark .sidebar{background:#0b1110}.dark .primary-button{color:#10201c}
 @media(max-width:1050px){.hero-grid{grid-template-columns:1fr 1fr}.progress-card{grid-column:1/-1}.goal-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.app-shell{display:block}.sidebar{position:fixed;left:-260px;width:250px;transition:.2s}.sidebar.open{left:0}.main{padding:18px}.mobile-only{display:inline-grid;place-items:center}.topbar{align-items:flex-start}.topbar h1{font-size:22px}.date-picker-wrap{display:none}.hero-grid,.content-grid,.analytics-top,.settings-grid,.goal-grid{grid-template-columns:1fr}.reflection-card{grid-row:auto}.analytics-grid .wide-card{grid-column:auto}.time-grid{grid-template-columns:1fr}.goal-header{display:block}.bar-chart{gap:6px}.analytics-row{grid-template-columns:95px 1fr 38px}.topbar>div:first-of-type{flex:1}}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('onepiece.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* =========================================
+   WHITE GLASSMORPHISM THEME
+   Paste at END of style.css
+========================================= */
+
+body.dark {
+  --bg: transparent;
+
+  /* White transparent glass */
+  --surface: rgba(255, 255, 255, 0.10);
+  --surface2: rgba(255, 255, 255, 0.08);
+
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+
+  --line: rgba(255, 255, 255, 0.20);
+
+  --accent: #9fffe3;
+  --accent2: rgba(159, 255, 227, 0.15);
+
+  --shadow:
+    0 8px 32px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==============================
+   MAIN CARDS
+============================== */
+
+body.dark .card {
+  background: rgba(255, 255, 255, 0.10);
+
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==============================
+   SIDEBAR GLASS
+============================== */
+
+body.dark .sidebar {
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    8px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Sidebar active item */
+
+body.dark .nav-item.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+/* Sidebar hover */
+
+body.dark .nav-item:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ==============================
+   HABIT ROWS
+============================== */
+
+body.dark .habit-item {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ==============================
+   PRIORITY ROWS
+============================== */
+
+body.dark .priority-row {
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ==============================
+   TIME BOXES
+============================== */
+
+body.dark .time-grid label {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Number inputs */
+
+body.dark .time-input {
+  background: rgba(0, 0, 0, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: white;
+}
+
+
+/* ==============================
+   REFLECTION TEXT BOXES
+============================== */
+
+body.dark .reflection-card textarea {
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  color: white;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.dark textarea::placeholder,
+body.dark input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* ==============================
+   DATE + TOP BUTTON
+============================== */
+
+body.dark .date-picker-wrap,
+body.dark .icon-button {
+  background: rgba(255, 255, 255, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .date-picker-wrap input {
+  color: white;
+}
+
+
+/* ==============================
+   SMALL PILLS
+============================== */
+
+body.dark .counter,
+body.dark .save-indicator {
+  background: rgba(255, 255, 255, 0.09);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==============================
+   ICON BOX
+============================== */
+
+body.dark .metric-icon,
+body.dark .habit-icon {
+  background: rgba(159, 255, 227, 0.12);
+
+  border: 1px solid rgba(159, 255, 227, 0.12);
+}
+
+
+/* ==============================
+   PROGRESS TRACK
+============================== */
+
+body.dark .progress-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .progress-fill {
+  background: #9fffe3;
+
+  box-shadow:
+    0 0 12px rgba(159, 255, 227, 0.35);
+}
+
+
+/* ==============================
+   SCORE CIRCLE
+============================== */
+
+body.dark .score-ring {
+  background:
+    conic-gradient(
+      var(--accent) 0deg,
+      rgba(255, 255, 255, 0.10) 0deg
+    );
+}
+
+body.dark .score-ring::before {
+  background: rgba(20, 25, 24, 0.55);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* ==============================
+   DIALOG / GOAL POPUP
+============================== */
+
+body.dark .dialog-card {
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(25px) saturate(150%);
+  -webkit-backdrop-filter: blur(25px) saturate(150%);
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==============================
+   OPTIONAL: subtle shine
+============================== */
+
+body.dark .card {
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 35%,
+      transparent 70%,
+      rgba(255, 255, 255, 0.025)
+    );
+
+  pointer-events: none;
+}
